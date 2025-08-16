@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paagal Songs</title>
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      padding-top: 10px;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      color: rgb(18, 19, 19);
+    }
+
+    p {
+      text-align: center;
+    }
+
+    /* Search Bar */
+    .searchbar {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .itemsearch {
+      width: 70%;
+      max-width: 900px;
+      padding: 12px;
+      border: none;
+      border-bottom: 2px solid black;
+      font-size: 16px;
+    }
+
+    /* Home Search */
+    .homesearch > h2 {
+      border: none;
+      border-bottom: 2px solid rgba(116, 110, 110, 0.71);
+      border-top: 2px solid rgba(116, 113, 113, 0.659);
+      padding: 8px;
+      margin: 20px auto;
+      width: 70%;
+      max-width: 900px;
+    }
+
+    .transparent {
+      color: rgba(118, 127, 136, 0.516);
+    }
+
+    /* Songs Section */
+    .songs-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px auto;
+      gap: 20px;
+      max-width: 1200px;
+    }
+
+    .song {
+      width: 300px;
+      text-align: center;
+    }
+
+    .song img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .video {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .video iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 5px;
+      aspect-ratio: 16 / 9;
+      /* This keeps aspect ratio for modern browsers */
+    }
+
+    /* Audio Section */
+    .audio {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px auto;
+      flex-wrap: wrap;
+    }
+
+    .audio h3 {
+      margin: 0;
+      color: rgb(19, 19, 20);
+    }
+
+    /* ------------ RESPONSIVE DESIGN ------------ */
+    /* Tablet - up to 1024px */
+    @media (max-width: 1024px) {
+      .itemsearch, 
+      .homesearch > h2 {
+        width: 85%;
+      }
+
+      .songs-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .video iframe {
+        height: 280px;
+      }
+    }
+
+    /* Mobile - up to 600px */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      .itemsearch, 
+      .homesearch > h2 {
+        width: 95%;
+        font-size: 14px;
+      }
+
+      .songs-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .song {
+        width: 90%;
+      }
+
+      .song img {
+        height: auto;
+      }
+
+      .video iframe {
+        height: 200px;
+      }
+
+      .audio {
+        flex-direction: column;
+      }
+
+      .audio audio {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="searchbar">
+    <form action="">
+      <label for="search"></label>
+      <input class="itemsearch" placeholder="Search.." type="search" id="search">
+    </form>
+  </div>
+
+  <h1>Naa Songs</h1>
+  <p><b>Telugu Songs Download</b></p>
+
+  <div class="homesearch">
+    <h2>Home * <span class="transparent">Paagal</span></h2>
+  </div>
+
+  <div class="songs-container">
+    <div class="song">
+      <h2><span>Paagal - 2021</span></h2>
+      <img src="./assets/paagal.jpg" alt="Paagal">
+    </div>
+    <div class="video">
+      <h1 style="color:rgb(13, 13, 14)">Trailer</h1>
+      <iframe src="https://www.youtube.com/embed/Cx5_qnKfjWc?si=Nq1jm5u_nGNiah2C"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="audio">
+    <h3>Amma Amma</h3>
+    <audio src="./songs/[iSongs.info] 05 - Amma Amma Neevennela.mp3" controls loop muted></audio>
+  </div>
+</body>
+</html>

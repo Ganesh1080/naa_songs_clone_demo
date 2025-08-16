@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naa Songs</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px 10px 10px;
+            margin: 0;
+            color: #333;
+            font-size: 2.5rem;
+        }
+
+        p {
+            text-align: center;
+            margin: 0 0 20px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .searchbar {
+
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+
+        .itemsearch {
+            width: 100%;
+            max-width: 600px;
+            padding: 12px 15px;
+            margin: 0 auto;
+            display: block;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .itemsearch:focus {
+            border-color: #007bff;
+        }
+
+        .songs-container {
+            display: grid;
+            gap: 20px;
+            padding: 20px;
+            background-color: rgba(24, 23, 23, 0.941);
+            margin: 0 auto;
+            max-width: 1200px;
+            border-radius: 10px;
+        }
+
+        .song-card {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .song-card a {
+            text-decoration: none;
+            display: block;
+        }
+
+        .song-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .song-card img:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+
+        .song-card h2 {
+            color: white;
+            font-size: 16px;
+            margin: 10px 0;
+            padding: 0 10px;
+            line-height: 1.4;
+        }
+
+        /* Desktop - 4 columns */
+        @media (min-width: 1024px) {
+            .songs-container {
+                grid-template-columns: repeat(4, 1fr);
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .song-card h2 {
+                font-size: 18px;
+            }
+            
+            .song-card img {
+                height: 280px;
+            }
+        }
+
+        /* Tablet - 3 columns */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .songs-container {
+                grid-template-columns: repeat(3, 1fr);
+                padding: 25px;
+                margin: 0 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .song-card h2 {
+                font-size: 16px;
+            }
+            
+            .song-card img {
+                height: 260px;
+            }
+        }
+
+        /* Mobile Large - 2 columns */
+        @media (min-width: 480px) and (max-width: 767px) {
+            .songs-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 20px 15px;
+                margin: 0 10px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .song-card h2 {
+                font-size: 15px;
+            }
+            
+            .song-card img {
+                height: 220px;
+            }
+        }
+
+        /* Mobile Small - 2 columns (smaller) */
+        @media (max-width: 479px) {
+            .songs-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 15px 10px;
+                margin: 0 5px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                padding: 15px 10px 5px;
+            }
+            
+            .song-card h2 {
+                font-size: 13px;
+                margin: 8px 0;
+            }
+            
+            .song-card img {
+                height: 180px;
+                border-radius: 8px;
+            }
+            
+            .searchbar {
+                padding: 0 10px;
+            }
+            
+            .itemsearch {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 320px) {
+            .songs-container {
+                gap: 8px;
+                padding: 10px 8px;
+                margin: 0 3px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .song-card img {
+                height: 160px;
+            }
+            
+            .song-card h2 {
+                font-size: 12px;
+            }
+        }
+
+        /* Landscape orientation adjustments */
+        @media (orientation: landscape) and (max-height: 500px) {
+            h1 {
+                padding: 10px;
+                font-size: 1.8rem;
+            }
+            
+            .songs-container {
+                padding: 15px;
+            }
+            
+            .song-card img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Naa Songs</h1>
+        <p>Telugu Songs Download</p>
+        
+        <div class="searchbar">
+            <form action="">
+                <label for="search"></label>
+                <input class="itemsearch" placeholder="Search songs, movies, artists..." type="search" name="" id="search">
+            </form>
+        </div>
+        
+        <div class="songs-container">
+            <div class="song-card">
+                <a href="./playlist1.html">
+                    <img src="./assets/Jersey_2019_poster.jpg" alt="Jersey" loading="lazy">
+                </a>
+                <h2><span>Jersey - 2019</span></h2>
+            </div>
+
+            <div class="song-card">
+                <a href="./playlist2.html">
+                    <img src="./assets/lucky bhasker.jpeg" alt="Lucky Bhasker" loading="lazy">
+                </a>
+                <h2><span>Lucky Bhasker - 2024</span></h2>
+            </div>
+
+            <div class="song-card">
+                <a href="./playlist3.html">
+                    <img src="./assets/paagal.jpg" alt="Paagal" loading="lazy">
+                </a>
+                <h2><span>Paagal - 2021</span></h2>
+            </div>
+
+            <div class="song-card">
+                <a href="./playlist4.html">
+                    <img src="./assets/18_Pages.jpg" alt="18 Pages" loading="lazy">
+                </a>
+                <h2><span>18 Pages - 2022</span></h2>
+            </div>
+
+            <div class="song-card">
+                <a href="./playlist5.html">
+                    <img src="./assets/alan-walker.jpg" alt="Alan Walker" loading="lazy">
+                </a>
+                <h2><span>Alan Walker</span></h2>
+            </div>
+            
+            <div class="song-card">
+                <a href="./playlist6.html">
+                    <img src="./assets/Single_film_poster.jpg" alt="Single" loading="lazy">
+                </a>
+                <h2><span>#Single</span></h2>
+            </div>
+            
+            <div class="song-card">
+                <a href="./playlist7.html">
+                    <img src="./assets/Game-Changer.jpg" alt="Game Changer" loading="lazy">
+                </a>
+                <h2><span>Game Changer - 2025</span></h2>
+            </div>
+            
+            <div class="song-card">
+                <a href="./playlist8.html">
+                    <img src="./assets/janaka-aithe-ganaka.jpg" alt="Janaka Aithe Ganaka" loading="lazy">
+                </a>
+                <h2><span>Janaka Aithe Ganaka</span></h2>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
